@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10172a">
+  <title>Study Buddy | Student Learning Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h2>📚 Study Buddy</h2>
+    <button id="logoutBtn" hidden>Logout</button>
+  </header>
+
+  <main>
+    <section id="authSection" class="panel">
+      <h1>Welcome to Study Buddy</h1>
+      <p>Learn smarter. Study better.</p>
+      <div class="tabs">
+        <button id="loginTab">Login</button>
+        <button id="registerTab">Register</button>
+      </div>
+      <form id="authForm">
+        <input id="fullName" placeholder="Full name" autocomplete="name" hidden>
+        <input id="email" type="email" placeholder="Email address" required autocomplete="email">
+        <input id="password" type="password" placeholder="Password" required autocomplete="current-password">
+        <button type="submit" id="authSubmit">Login</button>
+      </form>
+      <p id="authMessage" role="status"></p>
+    </section>
+
+    <section id="dashboard" hidden>
+      <div class="panel">
+        <h1>Student Dashboard</h1>
+        <p id="studentInfo"></p>
+        <p id="studentRole"></p>
+      </div>
+
+      <div class="panel">
+        <h2>📖 Textbook Library</h2>
+        <label for="classSelect">Select class</label>
+        <select id="classSelect">
+          <option value="10">Class 10</option>
+          <option value="+1">Class 11 (+1)</option>
+          <option value="+2">Class 12 (+2)</option>
+        </select>
+
+        <label for="mediumSelect">Select medium</label>
+        <select id="mediumSelect">
+          <option value="English">English Medium</option>
+          <option value="Tamil">Tamil Medium</option>
+        </select>
+
+        <div id="groupArea" hidden>
+          <label for="groupSelect">Select group</label>
+          <select id="groupSelect"></select>
+        </div>
+
+        <label for="subjectSelect">Select subject</label>
+        <select id="subjectSelect"></select>
+
+        <label for="volumeSelect">Select volume</label>
+        <select id="volumeSelect">
+          <option value="1">Volume 1</option>
+          <option value="2">Volume 2</option>
+        </select>
+
+        <button id="openBook">Open textbook</button>
+        <p id="bookMessage" role="status"></p>
+        <iframe id="pdfViewer" title="Textbook PDF viewer" hidden></iframe>
+      </div>
+
+      <div class="panel">
+        <h2>📝 My Notes</h2>
+        <textarea id="noteText" placeholder="Write your study notes"></textarea>
+        <button id="saveNote">Save note</button>
+        <div id="notesList"></div>
+      </div>
+
+      <div class="panel">
+        <h2>📅 Study Planner</h2>
+        <input id="planTitle" placeholder="Study task">
+        <input id="planDate" type="date">
+        <button id="savePlan">Add plan</button>
+        <div id="plansList"></div>
+      </div>
+
+      <section id="adminPanel" class="panel" hidden>
+        <h2>🛡️ Administrator Dashboard</h2>
+        <button id="loadStudents">Load students</button>
+        <div id="studentsList"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
